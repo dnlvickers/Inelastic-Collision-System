@@ -141,7 +141,6 @@ while t < T:
 	t += dt
 	count += 1
 	if count == 4:
-		print("the cat")
 		writeData(particles,t)
 		angularFile.write(str(t)+","+str(L) + "\n")
 		count = 0
