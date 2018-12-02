@@ -59,7 +59,7 @@ class Dust:
 			i += 1
 
 	def collide(self, d2):
-		self.mass = self.mass + d2.getMass
-		self.position = vectorMult(vectorSum(self.position,d2.getPosition),0.5)
-		self.momentum = vectorSum(self.momentum,d2.getMomentum)
-		self.radius = mass**(1/3)
+		self.mass = self.mass + d2.getMass()
+		self.position = vectorMult(vectorSum(self.position,d2.getPosition()),0.5)
+		self.momentum = vectorSum(self.momentum,d2.getMomentum())
+		self.radius = self.mass**(1/3)

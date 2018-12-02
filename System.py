@@ -58,7 +58,7 @@ def writeData(particleList,time):
 
 #And God (me in this case) said, "let there be dust"...
 
-N = 5
+N = 5000
 G = 6.674*(10**(-11))
 starMass = 10**30
 star = Dust([0,0],[0,0],starMass,"star")
@@ -82,13 +82,13 @@ while i  < N:
 		magr = magnitude(r)
 
 	#Now we generate a random momentum
-	px = (random.random() - 0.5) * 0.5 * (G*starMass/magr)**(1/2)
-	py = (random.random() - 0.5) * 0.5 * (G*starMass/magr)**(1/2)
+	px = (random.random() - 0.5) * 0.4 * (G*starMass/magr)**(1/2)
+	py = (random.random() - 0.5) * 0.4 * (G*starMass/magr)**(1/2)
 	p = [px,py]
 
 	p = vectorSum(p,spin(r,G,starMass))
 
-	mass = (random.random() * (10**23)) + (2 * (10**23))
+	mass = (random.random() * 4 * (10**23)) + (8 * (10**23))
 
 	p = vectorMult(p,mass)
 
@@ -105,6 +105,7 @@ t = 0
 dt = 60*60*6
 T = dt*40000
 count = 0
+collisions = 0
 
 while t < T:
 	i = 0
@@ -128,6 +129,8 @@ while t < T:
 			if magnitude(vectorSubtract(compPos,particles[j].getPosition())) <= (compRad + particles[j].getRadius()):
 				#Collide particles close enough to be inside of each other
 				particles[i].collide(particles[j])
+				collisions += 1
+				print(collisions)
 				i -= 1
 				#We no longer need element j. So, we delete it, and then continue to not incrament count
 				del(particles[j])
