@@ -53,7 +53,7 @@ def writeData(particleList,time):
 		p = particleList[i]
 		pos = p.getPosition()
 		mom = p.getMomentum()
-		dataFile.write(str(p.getID()) + "," + str(time)+ "," + str(pos[0]) + "," + str(pos[1]) + "," + str(mom[0]) + "," + str(mom[1]) + "," + str(p.getMass()) + "\n")
+		dataFile.write(str(p.getID()) + "," + str(time)+ "," + str(pos[0]) + "," + str(pos[1]) + "," + str(p.getMass()) + "\n")
 		i += 1
 
 #And God (me in this case) said, "let there be dust"...
@@ -65,7 +65,7 @@ star = Dust([0,0],[0,0],starMass,"star")
 particles = []
 
 dataFile = open("positions.csv", "w")
-dataFile.write("id,time,x,y,px,py,m" + "\n")
+dataFile.write("id,time,x,y,m" + "\n")
 
 angularFile = open("angular.csv", "w")
 angularFile.write("time,L\n")
@@ -113,6 +113,14 @@ while t < T:
 	while i < len(particles):
 		#First, calcualte the graviational force on all particles, then update positions accordingly
 		F = fG(star,particles[i],G)
+		j = 0
+		while j < len(particles):
+			if i == j:
+				j += 1
+			else:
+				F = vectorSum(F,fG(particles[j],particles[i],G))
+				j += 1
+				
 		particles[i].setMomentum(vectorSum(particles[i].getMomentum(),vectorMult(F,dt)))
 		particles[i].step(dt)
 
@@ -143,7 +151,7 @@ while t < T:
 	#Just need some way of adding data collection here, then we are all set :), after debugging :(
 	t += dt
 	count += 1
-	if count == 4:
+	if count == 2:
 		writeData(particles,t)
 		angularFile.write(str(t)+","+str(L) + "\n")
 		count = 0
