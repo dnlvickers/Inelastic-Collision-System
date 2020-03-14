@@ -1,0 +1,3 @@
+/mnt/c/Users/dnlvi/CLionProjects/Dust/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/dnlvi/CLionProjects/Dust/cmake-build-debug/CMakeFiles/Dust.dir
+/mnt/c/Users/dnlvi/CLionProjects/Dust/cmake-build-debug/CMakeFiles/edit_cache.dir

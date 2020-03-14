@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Dust.cpp
+Dust.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Dust.h
+cmath
+-
+Vec.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.h
+iostream
+-
+
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Dust.h
+cmath
+-
+Vec.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.h
+
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.cpp
+Vec.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.h
+cmath
+-
+
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.h
+
+/mnt/c/Users/dnlvi/CLionProjects/Dust/main.cpp
+iostream
+-
+Dust.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Dust.h
+vector
+-
+cmath
+-
+Vec.h
+/mnt/c/Users/dnlvi/CLionProjects/Dust/Vec.h
+fstream
+-
+
